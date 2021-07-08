@@ -1,0 +1,59 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "外部api",
+        "version": "1.0",
+        "title": "外部接口Api",
+        "contact": {
+            "name": "foo"
+        },
+        "license": {}
+    },
+    "host": "localhost",
+    "basePath": "/",
+    "tags": [{
+        "name": "测试",
+        "description": "Api Sys Store Sales Controller"
+    }],
+    "paths": {
+        "/api/auth/getAuthList": {
+            "get": {
+                "tags": ["权限相关接口"],
+                "summary": "权限列表接口",
+                "operationId": "getAuthListUsingGET",
+                "consumes": ["application/json"],
+                "produces": ["*/*"],
+                "parameters": [{
+                    "name": "token",
+                    "in": "header",
+                    "description": "令牌",
+                    "required": false,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResultVo«List«SysAuth»»"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/foo/bar":{
+            "post":{
+                "summary":"测试"
+            }
+        }
+    }
+        
+}
