@@ -1,11 +1,17 @@
 const fs = require('fs')
+const axios = require('axios');
 
 const args = process.argv.slice(2)
-const swaggerFile=args[0]?args[0]:'api-docs.json'
+let swaggerFile=args[0]?args[0]:'api-docs.json'
 const exportFile = args[1] ? args[1] : 'apis.js'
 
 function init() {
-
+    swaggerFile = 'https://xcx.hawkdo.com/v2/api-docs?group=%E5%A4%96%E9%83%A8%E9%80%9A%E7%94%A8%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3'
+    if (swaggerFile.match(/^https?:\/\/.*$/i)){
+        axios.get(swaggerFile).then(function(res){
+            analysis(res.data)
+        })
+    }else{
     let res = ''
     try {
         res = fs.readFileSync(swaggerFile, {
@@ -15,6 +21,7 @@ function init() {
         console.error("init -> error", error)
     }
     analysis(JSON.parse(res))
+    }
 
 }
 function  analysis(data) {
