@@ -1,0 +1,31 @@
+{
+  "name": "swaggerjson2js",
+  "version": "1.0.0",
+  "description": "用swagger的json文件生成api.js",
+  "main": "gen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellheaven/swaggerJson2js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hellheaven/swaggerJson2js/issues"
+  },
+  "homepage": "https://github.com/hellheaven/swaggerJson2js#readme",
+  "dependencies": {
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.4",
+    "axios": "^0.21.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.4"
+  }
+}
