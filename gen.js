@@ -70,15 +70,16 @@ async function coverHandler(err, res) {
         let method = Object.keys(forms[item])[0]
         if (method == 'post' && forms[item].post.requestBody) {
             let name = item.match(/\w*$/)[0]
-            saveVueTemplete(name, 'schemas/' + name, JSON.stringify(forms[item].post.requestBody.content['application/json'].schema))
+            saveVueTemplete(name, 'schemas/' + name, JSON.stringify(forms[item].post.requestBody.content['application/json'].schema), forms[item].post.summary)
         }
     }
     saveFile(JSON.stringify(resolved.result), 'jsonSchema.json')
 }
 
-function saveVueTemplete(name, fileName, raw) {
-    let temp = template(name, raw)
-    return saveFile(temp, `${fileName}.vue`)
+function saveVueTemplete(name, fileName, raw, summary) {
+    let temp = template(name, summary)
+    saveFile(temp, `${fileName}.vue`)
+    saveFile(raw, `${fileName}.json`)
 }
 
 function saveFile(data, fileName) {
