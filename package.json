@@ -26,6 +26,9 @@
   "devDependencies": {
     "@babel/cli": "^7.15.4",
     "@babel/core": "^7.15.5",
-    "@babel/preset-env": "^7.15.4"
+    "@babel/preset-env": "^7.15.4",
+    "json-ref-resolver": "^1.0.1",
+    "openapi-schema-to-json-schema": "^2.2.0",
+    "swagger2openapi": "^7.0.8"
   }
 }
